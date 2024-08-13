@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real 1.0 - Real Estate Aggregator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Real 1.0 Logo">
+            </div>
+            <ul>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Real 1.0 - Real Estate Aggregator</h1>
+                <div id="google-signin-button"></div>
+                <button id="signout-button" class="button" style="display: none;">Sign Out</button>
+            </header>
+            <section id="search" class="card">
+                <h2>Search Parameters</h2>
+                <form id="search-form">
+                    <div class="form-group">
+                        <label for="county">County:</label>
+                        <input type="text" id="county" name="county" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="listing-type">Listing Type:</label>
+                        <select id="listing-type" name="listing_type">
+                            <option value="vanzare">For Sale</option>
+                            <option value="inchiriere">For Rent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="property-type">Property Type:</label>
+                        <select id="property-type" name="property_type">
+                            <option value="apartament">Apartment</option>
+                            <option value="casa">House</option>
+                            <option value="teren">Land</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rooms">Rooms:</label>
+                        <input type="number" id="rooms" name="rooms" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="surface-from">Surface (m²) From:</label>
+                        <input type="number" id="surface-from" name="surface_from" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="surface-to">Surface (m²) To:</label>
+                        <input type="number" id="surface-to" name="surface_to" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="price-from">Price From:</label>
+                        <input type="number" id="price-from" name="price_from" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="price-to">Price To:</label>
+                        <input type="number" id="price-to" name="price_to" min="0">
+                    </div>
+                    <button type="submit" class="button">Search</button>
+                </form>
+            </section>
+            <div id="loading-indicator" style="display: none;">Loading...</div>
+            <section id="results" class="card">
+                <h2>Search Results</h2>
+                <div class="table-responsive">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th data-column="price">Price <span class="sort-arrow">&#9650;</span></th>
+                                <th data-column="surface">Surface (m²) <span class="sort-arrow">&#9650;</span></th>
+                                <th data-column="pricePerSqm">Price/m² <span class="sort-arrow">&#9650;</span></th>
+                                <th>Location</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Results will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="compare-button" class="button" style="display: none;">Compare Selected</button>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
